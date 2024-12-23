@@ -12,8 +12,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Clang Format Check
-        uses: jtakahashii/clang-format-check@v1
+      - name: CPP formatting check with clang-format
+        uses: jaytakahashii/clang-format-check@v1.0.1
         with:
           path: "src"
           style: "Google"

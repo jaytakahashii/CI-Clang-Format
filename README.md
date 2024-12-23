@@ -67,7 +67,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Clang Format Check
-        uses: your-username/clang-format-check@v1
+        uses: jaytakahashii/clang-format-check@v1
         with:
           path: "src"
           style: "Google"
@@ -93,7 +93,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Clang Format Check with Custom Style
-        uses: your-username/clang-format-check@v1
+        uses: jaytakahashii/clang-format-check@v1
         with:
           path: "src"
           style: "file"
@@ -122,7 +122,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Clang Format Check
-        uses: your-username/clang-format-check@v1
+        uses: jaytakahashii/clang-format-check@v1
         with:
           path: "${{ matrix.path }}"
           style: "Google"
