@@ -1,4 +1,4 @@
-name: Clang Format Check
+name: CPP formatting check with clang-format
 description: A GitHub Action to check C++ code formatting using clang-format.
 author: jaytakahashii
 inputs:
