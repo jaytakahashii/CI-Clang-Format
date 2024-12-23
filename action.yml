@@ -1,0 +1,25 @@
+name: Clang Format Check
+description: A GitHub Action to check C++ code formatting using clang-format.
+author: jaytakahashii
+inputs:
+  path:
+    description: "Directory to check for C++ files"
+    required: true
+    default: "src"
+  style:
+    description: "Clang format style (e.g., Google, LLVM, etc.)"
+    required: false
+    default: "Google"
+outputs:
+  success:
+    description: "Whether the formatting check passed"
+    value: ${{ steps.check.outputs.success }}
+runs:
+  using: "composite"
+  steps:
+    - name: Run Clang Format Check
+      run: bash scripts/clang-format-check.sh ${{ inputs.path }} ${{ inputs.style }}
+      shell: bash
+branding:
+  icon: "check-circle"
+  color: "purple"
