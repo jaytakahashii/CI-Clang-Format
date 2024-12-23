@@ -54,10 +54,7 @@ For more details, refer to the [clang-format documentation](https://clang.llvm.o
 ```yaml
 name: Clang Format Check
 
-on:
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   format-check:
@@ -80,10 +77,7 @@ If you want to use a custom style, include a `.clang-format` file in the root of
 ```yaml
 name: Custom Clang Format Check
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   format-check:
@@ -95,8 +89,8 @@ jobs:
       - name: Run Clang Format Check with Custom Style
         uses: jaytakahashii/clang-format-check@v2
         with:
-          path: "src"
-          style: "file"
+          path: "custom"
+          style: "LLVM"
 ```
 
 ### Check Multiple Directories
@@ -104,10 +98,7 @@ jobs:
 ```yml
 name: Multi-Directory Clang Format Check
 
-on:
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   format-check:
