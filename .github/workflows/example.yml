@@ -1,9 +1,6 @@
 name: Example Clang Format Workflow
 
-on:
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   format-check:
@@ -12,8 +9,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: CPP formatting check with clang-format
-        uses: jaytakahashii/clang-format-check@v1.0.2
+      - name: Run Clang Format Check
+        uses: jaytakahashii/clang-format-check@v2
         with:
           path: "src"
           style: "Google"
