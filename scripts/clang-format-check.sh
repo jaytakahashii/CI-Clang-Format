@@ -9,9 +9,15 @@ if [ -z "$1" ]; then
 fi
 
 DIRECTORY="$1"
-STYLE="${2:-Google}" # デフォルトスタイルはGoogle
-echo "Running clang-format check in directory: $DIRECTORY"
-echo "Using style: $STYLE"
+STYLE="$2" # 事前に渡されたスタイル (デフォルトはGoogle)
+
+# .clang-formatファイルがプロジェクトルートに存在するか確認
+if [ -f ".clang-format" ]; then
+  echo "Found .clang-format file. Ignoring provided style and using .clang-format."
+  STYLE=""  # .clang-formatを使用するため、style変数を空に設定
+else
+  echo "No .clang-format file found. Using style: $STYLE"
+fi
 
 # 対象とするファイル拡張子
 EXTENSIONS="*.cpp *.h *.hpp"
